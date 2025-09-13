@@ -1,0 +1,935 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观律能源 - AI驱动的智慧能源交易与服务引领者</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E90FF',
+                        secondary: '#108EE9',
+                        lightgray: '#F5F7FA',
+                        darkgray: '#333333',
+                        midgray: '#666666'
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Roboto', 'sans-serif'],
+                        'source-han': ['"Source Han Sans CN"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 24px rgba(30, 144, 255, 0.2);
+            }
+            .section-title {
+                position: relative;
+                padding-bottom: 12px;
+            }
+            .section-title::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 30px;
+                height: 3px;
+                background-color: #1E90FF;
+            }
+            .nav-active {
+                border-bottom: 2px solid #1E90FF;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-darkgray bg-white">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-primary text-2xl font-bold mr-2">
+                    <i class="fa fa-bolt"></i>
+                </div>
+                <div>
+                    <div class="text-xl font-bold">观律能源</div>
+                    <div class="text-xs text-midgray">Guanlu Energy</div>
+                </div>
+            </div>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link nav-active">首页</a>
+                <a href="#about" class="nav-link">公司简介</a>
+                <a href="#services" class="nav-link">核心服务</a>
+                <a href="#advantages" class="nav-link">核心优势</a>
+                <a href="#cases" class="nav-link">案例展示</a>
+                <a href="#partners" class="nav-link">合作伙伴</a>
+                <a href="#contact" class="nav-link">联系我们</a>
+            </nav>
+            
+            <!-- 移动端汉堡菜单 -->
+            <button id="menu-toggle" class="md:hidden text-darkgray focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#home" class="py-2 border-b border-gray-100">首页</a>
+                <a href="#about" class="py-2 border-b border-gray-100">公司简介</a>
+                <a href="#services" class="py-2 border-b border-gray-100">核心服务</a>
+                <a href="#advantages" class="py-2 border-b border-gray-100">核心优势</a>
+                <a href="#cases" class="py-2 border-b border-gray-100">案例展示</a>
+                <a href="#partners" class="py-2 border-b border-gray-100">合作伙伴</a>
+                <a href="#contact" class="py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero区域 -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <!-- 背景动画 -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-white z-0">
+            <div id="particle-container" class="absolute inset-0 opacity-30"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 leading-tight text-shadow">
+                AI驱动的智慧能源交易与服务引领者
+            </h1>
+            
+            <div class="max-w-3xl mx-auto space-y-4 mb-8">
+                <p class="text-[clamp(1.1rem,3vw,1.5rem)] text-primary font-medium">
+                    对工商业客户用电终端 → 低电价、省电费、降能耗、近零碳
+                </p>
+                <p class="text-[clamp(1.1rem,3vw,1.5rem)] text-primary font-medium">
+                    对供给端市场竞价电源 → 可预测、控损益、促交易、稳经营
+                </p>
+            </div>
+            
+            <p class="text-midgray max-w-2xl mx-auto mb-10">
+                从用电终端到能源供给，观律能源让每一次购售电、电力交易更智能、更经济、更可持续，与企业共赴高效、降费、低碳的能源新未来。
+            </p>
+            
+            <a href="#about" class="inline-block animate-bounce">
+                <i class="fa fa-chevron-down text-primary text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 公司简介模块 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">公司简介</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 公司定位 -->
+                <div class="bg-white border border-primary/20 rounded-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-map-marker text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">植根能源数字化的高科技企业</h3>
+                    <p class="text-midgray">
+                        专注于能源数字化与智能化前沿，核心团队源自电力能源及碳中和领域领先企业，继承顶尖技术实力与实践经验。
+                    </p>
+                </div>
+                
+                <!-- 核心团队 -->
+                <div class="bg-white border border-primary/20 rounded-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-users text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">20+资深专业团队</h3>
+                    <p class="text-midgray">
+                        成员覆盖电力交易、大数据分析、AI算法领域，平均从业8+年，50%+拥有10年以上电力市场经验。
+                    </p>
+                </div>
+                
+                <!-- 行业资源 -->
+                <div class="bg-white border border-primary/20 rounded-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-link text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">全链条行业资源</h3>
+                    <p class="text-midgray">
+                        服务31个省市，覆盖12000+万千瓦火电装机、100+风场、170+售电公司、1W+用电企业，贯通"发-输-配-售-用"全链条。
+                    </p>
+                </div>
+                
+                <!-- 公司资质 -->
+                <div class="bg-white border border-primary/20 rounded-lg p-6 card-hover">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-certificate text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AAA级信用资质</h3>
+                    <p class="text-midgray mb-4">
+                        拥有多项行业权威认证，包括AAA级信用企业、诚信经营示范单位、质量服务诚信单位等荣誉。
+                    </p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">AAA认证</span>
+                        <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">诚信示范</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心服务模块 -->
+    <section id="services" class="py-20 bg-lightgray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">核心服务</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 工商业客户用电终端服务 -->
+                <div class="bg-white border border-primary/30 rounded-lg overflow-hidden">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">工商业客户用电终端服务</h3>
+                    </div>
+                    
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 低电价 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-arrow-down text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">低电价</h4>
+                                <p class="text-sm text-midgray">
+                                    依托AI算法分析市场行情，制定精准购电策略，获取低于市场均价的优惠电价。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 省电费 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-money text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">省电费</h4>
+                                <p class="text-sm text-midgray">
+                                    优化需量管理、峰谷套利，结合政策补贴，降低电费支出。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 降能耗 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-leaf text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">降能耗</h4>
+                                <p class="text-sm text-midgray">
+                                    光储充一体化运营、虚拟电厂调度，减少冗余能耗，提升能源利用效率。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 近零碳 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-globe text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">近零碳</h4>
+                                <p class="text-sm text-midgray">
+                                    绿电绿证交易代理、碳资产管理，助力企业实现近零碳目标。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 供给端市场竞价电源服务 -->
+                <div class="bg-white border border-primary/30 rounded-lg overflow-hidden">
+                    <div class="bg-primary text-white p-4">
+                        <h3 class="text-xl font-bold">供给端市场竞价电源服务</h3>
+                    </div>
+                    
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 可预测 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-line-chart text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">可预测</h4>
+                                <p class="text-sm text-midgray">
+                                    日前价格预测准确率85%+、实时价格准确率75%+，提前预判市场波动。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 控损益 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-shield text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">控损益</h4>
+                                <p class="text-sm text-midgray">
+                                    交易全流程托管，量化风险边界，控制收益波动。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 促交易 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-handshake-o text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">促交易</h4>
+                                <p class="text-sm text-midgray">
+                                    对接多省市电力交易中心，优化竞价策略，提升成交效率与收益。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 稳经营 -->
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-area-chart text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-primary">稳经营</h4>
+                                <p class="text-sm text-midgray">
+                                    长期合约与现货联动，平衡市场波动，保障电源资产稳定经营。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心优势模块 -->
+    <section id="advantages" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">核心优势</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- AI算法能力 -->
+                <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-microchip text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AI算法能力</h3>
+                    <p class="text-midgray mb-4">
+                        自研AI大模型算法，支撑价格预测、负荷预测、智能调度，为客户创造显著价值提升。
+                    </p>
+                    <div class="text-sm text-midgray">
+                        <p class="mb-1"><i class="fa fa-check text-primary mr-2"></i>惠阳储能项目IRR从8.3%提升至14%</p>
+                        <p><i class="fa fa-check text-primary mr-2"></i>山西光伏结算均价超市场46.7%</p>
+                    </div>
+                </div>
+                
+                <!-- 自研技术平台 -->
+                <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-code text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">自研技术平台</h3>
+                    <p class="text-midgray mb-4">
+                        拥有电力市场智慧服务平台、虚拟电厂运营平台、发电生产优化系统，覆盖全流程业务。
+                    </p>
+                    <div class="text-sm text-midgray">
+                        <p class="mb-1"><i class="fa fa-check text-primary mr-2"></i>零售电交易与现货合约交易</p>
+                        <p><i class="fa fa-check text-primary mr-2"></i>功能覆盖报价、合同签订、客户服务</p>
+                    </div>
+                </div>
+                
+                <!-- 深度资源网络 -->
+                <div class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-handshake-o text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">深度资源网络</h3>
+                    <p class="text-midgray mb-4">
+                        深度绑定五大六小发电集团，合作电厂覆盖12000万千瓦火电，客户续约率98%+。
+                    </p>
+                    <div class="text-sm text-midgray">
+                        <p class="mb-1"><i class="fa fa-check text-primary mr-2"></i>华能、粤电、国家电投等战略合作伙伴</p>
+                        <p><i class="fa fa-check text-primary mr-2"></i>可提供基准电价5%-20%梯度优惠</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 案例展示模块 -->
+    <section id="cases" class="py-20 bg-lightgray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">成功案例</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 惠阳区工商业储能项目 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/energy1/600/400" alt="惠阳区工商业储能项目图片" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">惠阳区工商业储能项目</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">背景</h4>
+                            <p class="text-sm">5.409MWH储能+1085kwp光伏，原年收益183.85万</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">措施</h4>
+                            <p class="text-sm">AI光储运营模型+外部市场打通（现货/需求响应）</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-sm text-midgray mb-1">成效</h4>
+                            <p class="text-sm">年收益提升至285.72万，14年IRR从8.3%→14%</p>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <canvas id="chart1" height="120"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 山西50MW光伏电站 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/energy2/600/400" alt="山西50MW光伏电站图片" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">山西50MW光伏电站</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">背景</h4>
+                            <p class="text-sm">代理集中式光伏交易，目标超市场均价</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">措施</h4>
+                            <p class="text-sm">AI价格预测+策略优化</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-sm text-midgray mb-1">成效</h4>
+                            <p class="text-sm">结算均价最高超市场46.7%，累计超收益13.07万元</p>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <canvas id="chart2" height="120"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 蒙西新能源场站配储项目 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <img src="https://picsum.photos/seed/energy3/600/400" alt="蒙西新能源场站配储项目图片" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">蒙西新能源场站配储项目</h3>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">背景</h4>
+                            <p class="text-sm">19.5MW风场+2MWh储能，原年充放&lt;50次</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-bold text-sm text-midgray mb-1">措施</h4>
+                            <p class="text-sm">AI智能调度，参与现货市场</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-sm text-midgray mb-1">成效</h4>
+                            <p class="text-sm">9-10月充放52次，收益提升56%，度电收益从0.19→0.22元/kWh</p>
+                        </div>
+                        
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <canvas id="chart3" height="120"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴模块 -->
+    <section id="partners" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">合作伙伴</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <!-- 发电集团 -->
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-bolt"></i></div>
+                        <div class="text-sm font-medium">中国华能</div>
+                    </div>
+                </div>
+                
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-bolt"></i></div>
+                        <div class="text-sm font-medium">中国华润</div>
+                    </div>
+                </div>
+                
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-bolt"></i></div>
+                        <div class="text-sm font-medium">国家能源</div>
+                    </div>
+                </div>
+                
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-bolt"></i></div>
+                        <div class="text-sm font-medium">大唐集团</div>
+                    </div>
+                </div>
+                
+                <!-- 交易中心 -->
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-exchange"></i></div>
+                        <div class="text-sm font-medium">南方电网</div>
+                    </div>
+                </div>
+                
+                <div class="bg-lightgray rounded-lg p-6 flex items-center justify-center h-24 card-hover">
+                    <div class="text-center">
+                        <div class="text-primary text-2xl mb-2"><i class="fa fa-exchange"></i></div>
+                        <div class="text-sm font-medium">国家电网</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们模块 -->
+    <section id="contact" class="py-20 bg-lightgray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-12 section-title">联系我们</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 公司信息 -->
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-xl font-bold mb-6">公司信息</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fa fa-building text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-midgray">公司名称</h4>
+                                <p>深圳观律能源信息有限公司</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fa fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-midgray">联系电话</h4>
+                                <p>19166205062</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fa fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-midgray">电子邮箱</h4>
+                                <p>guanlu@guanluenergy.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                <i class="fa fa-map-marker text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-midgray">公司地址</h4>
+                                <p>深圳市福田区福田街道福山社区滨河大道5022号联合广场A座38D8E</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <h4 class="font-bold mb-3">公司定位</h4>
+                        <p class="text-primary italic">
+                            AI驱动的智慧能源交易与服务引领者
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 联系表单 -->
+                <div class="bg-white p-8 rounded-lg">
+                    <h3 class="text-xl font-bold mb-6">联系表单</h3>
+                    
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-midgray mb-1">姓名 <span class="text-red-500">*</span></label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-midgray mb-1">公司名称 <span class="text-red-500">*</span></label>
+                            <input type="text" id="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-midgray mb-1">联系电话 <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition" required="">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-midgray mb-1">留言内容</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-medium py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
+                            <i class="fa fa-paper-plane mr-2"></i> 提交留言
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚模块 -->
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="text-white text-2xl font-bold mr-2">
+                            <i class="fa fa-bolt"></i>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold">观律能源</div>
+                            <div class="text-xs opacity-80">Guanlu Energy</div>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 mb-4">
+                        ©2024 深圳观律能源信息有限公司 | 域名：guanluenergy.com
+                    </p>
+                    <p class="text-sm">
+                        与企业共赴高效、降费、低碳的能源新未来
+                    </p>
+                </div>
+                
+                <div class="text-right">
+                    <div class="flex justify-end space-x-6 mb-4">
+                        <a href="#" class="text-white hover:text-white/80 transition">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-white/80 transition">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-white/80 transition">
+                            <i class="fa fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="flex justify-end space-x-6 text-sm">
+                        <a href="#" class="opacity-80 hover:opacity-100 transition">隐私政策</a>
+                        <a href="#" class="opacity-80 hover:opacity-100 transition">服务条款</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+            
+            // 更新导航栏激活状态
+            updateNavActive();
+        });
+        
+        // 更新导航栏激活状态
+        function updateNavActive() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('nav-active');
+                }
+            });
+        }
+        
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单（如果打开）
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Hero区域粒子动画
+        function createParticles() {
+            const container = document.getElementById('particle-container');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                
+                // 随机大小和位置
+                const size = Math.random() * 4 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 20 + 10;
+                
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background-color: #1E90FF;
+                    border-radius: 50%;
+                    top: ${posY}%;
+                    left: ${posX}%;
+                    opacity: ${Math.random() * 0.5 + 0.2};
+                    animation: float ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // 添加浮动动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-20px) translateX(10px);
+                }
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 表单提交处理
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的留言，我们会尽快与您联系！');
+            this.reset();
+        });
+        
+        // 初始化图表
+        function initCharts() {
+            // 图表1: 惠阳区项目收益对比
+            new Chart(document.getElementById('chart1'), {
+                type: 'bar',
+                data: {
+                    labels: ['优化前', '优化后'],
+                    datasets: [{
+                        label: '年收益(万元)',
+                        data: [183.85, 285.72],
+                        backgroundColor: [
+                            'rgba(16, 142, 233, 0.6)',
+                            'rgba(30, 144, 255, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(16, 142, 233, 1)',
+                            'rgba(30, 144, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // 图表2: 山西光伏项目收益对比
+            new Chart(document.getElementById('chart2'), {
+                type: 'line',
+                data: {
+                    labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                    datasets: [{
+                        label: '市场均价',
+                        data: [0.32, 0.35, 0.33, 0.36, 0.34, 0.37],
+                        borderColor: 'rgba(102, 102, 102, 0.6)',
+                        backgroundColor: 'transparent',
+                        tension: 0.3
+                    }, {
+                        label: '观律能源',
+                        data: [0.38, 0.42, 0.46, 0.49, 0.45, 0.54],
+                        borderColor: 'rgba(30, 144, 255, 0.8)',
+                        backgroundColor: 'transparent',
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 10,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: '电价(元/度)',
+                                font: {
+                                    size: 10
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // 图表3: 蒙西项目收益提升
+            new Chart(document.getElementById('chart3'), {
+                type: 'line',
+                data: {
+                    labels: ['优化前', '9月', '10月'],
+                    datasets: [{
+                        label: '度电收益(元)',
+                        data: [0.19, 0.21, 0.22],
+                        borderColor: 'rgba(30, 144, 255, 0.8)',
+                        backgroundColor: 'rgba(30, 144, 255, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 0.18,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 页面加载完成后初始化
+        window.addEventListener('load', function() {
+            createParticles();
+            initCharts();
+            updateNavActive();
+        });
+    </script>
+
+
+</body></html>
